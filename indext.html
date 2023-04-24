@@ -5,41 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>EncriptadorTexto</title>
 </head>
 <body>
-    <header class="logo">
-        <img src="imagenes/Logo.jpg"> 
-        <h1>Encriptar y Desencriptador de Texto</h1>
-        <h3>Challenge ONE Encriptador de Texto</h3>
+    <header>
+        
+        <h1>Encriptardor y Desencriptador de Texto</h1>
+        <h4>Challenge ONE Encriptador de Texto</h4>
     </header>
 
     <main>
-        <section class="principal">
+        <section class="textoPrincipal">
             <div>
-                <textarea name="textoEntrada" id="textoEntrada" cols="30" rows="10" placeholder="Ingresa tu texto aqui" required></textarea>
+                <textarea name="textoEntrada" id="textoEntrada" cols="30" rows="10" placeholder="Ingresa tu texto aqui"></textarea>
             </div>
 
         </section>
-        <section id="textosVisibles" style="visibility: hidden;">
+        <sectio class="botonesPrimarios">
             <div>
-                <h4>Texto Original</h4>
-                <textarea name="" id="textoCopiaOriginal" cols="30" rows="10"></textarea>
-                </div>
-             <div>
-                 <h4>Texto Procesado</h4>
-                 <textarea name="" id="textoProcesado" cols="30" rows="10"></textarea>
-                 <button id="botonCopiar">Copiar</button>
-             </div>
-        </section>
-        <sectio>
-            <div class="botonesPrimarios">
-            <button id="botonEncriptar" type="submit">Encriptar</button>
-            <button id="botonDesencriptar" type="submit">Desencriptar</button>
-            </div>
+                <button type="button" class="css-button" id="botonEncriptar">
+                    <span class="css-button-icon">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                    <span class="css-button-text">
+                        <span>Encriptar</span>
+                    </span>
+                    <button type="button" class="css-button" id="botonDesencriptar">
+                        <span class="css-button-icon">
+                            <i class="fa fa-unlock"></i>
+                        </span>
+                        <span class="css-button-text">
+                            <span>Desencriptar</span>
+                        </span>
+                    </button>            </div>
             <div></div>     
         </sectio>
-    
+        <section class="textoSalida" id="textosVisibles" style="visibility: hidden;">
+            <div class="textoSalida1">
+                <h4>Texto Original</h4>
+                <textarea name="" id="textoCopiaOriginal" cols="30" rows="10" readonly></textarea>
+                </div>
+             <div class="textoSalida2">
+                 <h4>Texto Procesado</h4>
+                 <textarea name="" id="textoProcesado" cols="30" rows="10" readonly></textarea>
+                 </div>
+                 <div class="BotonCopiar">
+
+                    <button type="button" class="css-button" id="botonCopiar">
+                        <span class="css-button-icon">
+                            <i class="fa fa-copy"></i>
+                        </span>
+                        <span class="css-button-text">
+                            <span>Copy</span>
+                        </span>
+                    </button>  
+                  
+                    </div>      
+        </section>
+      
     </main>
     <footer>
         <p>&copy2023 by Jeifry Rodriguez G5-ONE <img src="imagenes/logo-footer.png" alt=""></p>
@@ -50,19 +74,23 @@
 
 
 <script>
-    
+    //declaracion de variables 
     var textoEntada = document.getElementById("textoEntrada")
     var botonEncriptar = document.getElementById("botonEncriptar")
     var botonCopiar = document.getElementById('botonCopiar')
     var botondesencriptar = document.getElementById('botonDesencriptar')
-
-
-
-
 // Función para encriptar texto
 function encriptar() {
-    
-
+    var mayusculas = /[A-Z]/;
+    var  acentos = /[áéíóú]/;
+    if (textoEntada.value === "") {
+    alert("Debes ingresar un texto");
+  } else if (
+    mayusculas.test(document.getElementById("textoEntrada").value) ||
+    acentos.test(document.getElementById("textoEntrada").value)
+  ) {
+   alert("No puedes usar mayusculas ni acentos");
+  } else {
     var textoFinal = textoEntada.value
         .replace(/e/gi, "enter")
       .replace(/i/gi, "imes")
@@ -72,10 +100,13 @@ function encriptar() {
     document.getElementById("textoProcesado").value = textoFinal
     procesarTexto()
   }
-    
+}
   
-
+//funcion para desencriptar el texto
     function desencriptar(){
+        if (textoEntada.value === "") {
+    alert("Debes ingresar un texto");
+  }
         var textoFinal = textoEntada.value
       .replace(/enter/gi, "e")
       .replace(/imes/gi, "i")
@@ -83,12 +114,9 @@ function encriptar() {
       .replace(/ober/gi, "o")
       .replace(/ufat/gi, "u");
       document.getElementById("textoProcesado").value = textoFinal
-    procesarTexto()
+        procesarTexto()
     }
-
-
-
-
+//funcion Copiar
     function Copiar(){
         const contenido = document.getElementById('textoProcesado')
         contenido.select()
@@ -96,7 +124,7 @@ function encriptar() {
         
 
     }
-
+//funcion Procesar el texto
     function procesarTexto(){
         document.getElementById("textoCopiaOriginal").innerHTML = textoEntada.value 
         document.getElementById('textosVisibles').style.visibility = 'visible' 
@@ -104,7 +132,7 @@ function encriptar() {
         textoEntada.value = ''
     }
 
-    
+  //accionar los botones  
     botonEncriptar.onclick = encriptar
     botonCopiar.onclick = Copiar
     botondesencriptar.onclick = desencriptar 

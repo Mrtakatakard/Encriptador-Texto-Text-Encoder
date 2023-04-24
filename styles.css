@@ -1,18 +1,61 @@
+body{
+    background-color: #BBDAF7;
+}
 
+header{
+    width: 100%;
+    text-align: center;
+}
+.textoPrincipal{
+    
+    text-align: center;
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.botonesPrimarios{
+    text-align: center;
+}
+.css-button {
+	color: #FFFFFF;
+	font-size: 16px;
+	border-radius: 5px;
+	border: solid 1px #3866a3;
+	text-shadow: 1px 1px 0px #528ECC;
+	box-shadow: inset 1px 1px 0px 0px #BBDAF7;
+	text-decoration: none;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	font-family: Arial;
+	background: linear-gradient(180deg, #63B8EE 10%, #468CCF 100%);
+	display: inline-flex;
+	align-items: center;
+	padding: 0;
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #468CCF 10%, #63B8EE 100%);
+}
+.css-button-text {
+	position: relative;
+	padding: 10px 18px;
+}
+.css-button-icon {
+	position: relative;
+	border-right: 1px solid #ffffff29;
+	box-shadow: inset rgb(0 0 0 / 14%) -1px 0 0;
+	padding: 10px 10px;
+}
+.textoSalida1{
+    width: auto;
+    text-align: center;
+    
+    
+}
+.textoSalida2{
+    width: auto;
+    text-align: center;
+    
+}
 
 footer{
     text-align: center;
@@ -22,4 +65,9 @@ footer{
 footer img{
     width: 120px;
     margin: 0 0 -11px;
+    opacity: 40%;
 }
+.BotonCopiar{
+    text-align: center;
+}
+

@@ -1,61 +1,25 @@
-.logo{
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 40px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    text-align: center;
+    padding: 40px;
 }
 
-.ingresarTexto{
-position: absolute;
-width: 577px;
-height: 48px;
-left: 240px;
-top: 168px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 32px;
-line-height: 150%;
-}
-
-.rectangulo{
-    position: absolute;
-width: 400px;
-height: 944px;
-left: 1000px;
-top: 40px;
-/* White */
-
-background: #FFFFFF;
-/* shadow */
-
-box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-border-radius: 32px;
-}
-
-.muneco{
-    /* Muñeco */
-
-
-position: absolute;
-width: 336px;
-height: 304px;
-left: 1032px;
-top: 283px;
-
-}
-.textoAmostrar h1{
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 16px;
-
-position: absolute;
-width: 336px;
-height: 122px;
-left: 1032px;
-top: 619px;
-
+footer img{
+    width: 120px;
+    margin: 0 0 -11px;
 }

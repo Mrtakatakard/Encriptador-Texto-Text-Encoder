@@ -10,46 +10,103 @@
 <body>
     <header class="logo">
         <img src="imagenes/Logo.jpg"> 
+        <h1>Encriptar y Desencriptador de Texto</h1>
+        <h3>Challenge ONE Encriptador de Texto</h3>
     </header>
 
     <main>
-
-        <section>
-            <div class="ingresarTexto">
-                <textarea name="texto" id="" cols="30" rows="10" placeholder="Ingrece el texto aqui"></textarea>
+        <section class="principal">
+            <div>
+                <textarea name="textoEntrada" id="textoEntrada" cols="30" rows="10" placeholder="Ingresa tu texto aqui" required></textarea>
             </div>
 
-            <div class="textoAmostrar">
-                <img src="imagenes/Muñeco.jpg" id="muneco">
-                <img src="imagenes/Rectangle 1.jpg" id="rectangulo">
-                <h1>Ningun mensaje fue encontrado</h1>
-            </div>
         </section>
-        <section>
-
-            <button type="submit">Encriptar</button>
-            <button type="submit">Desencriptar</button>
-
-        </section> 
-
+        <section id="textosVisibles" style="visibility: hidden;">
+            <div>
+                <h4>Texto Original</h4>
+                <textarea name="" id="textoCopiaOriginal" cols="30" rows="10"></textarea>
+                </div>
+             <div>
+                 <h4>Texto Procesado</h4>
+                 <textarea name="" id="textoProcesado" cols="30" rows="10"></textarea>
+                 <button id="botonCopiar">Copiar</button>
+             </div>
+        </section>
+        <sectio>
+            <div class="botonesPrimarios">
+            <button id="botonEncriptar" type="submit">Encriptar</button>
+            <button id="botonDesencriptar" type="submit">Desencriptar</button>
+            </div>
+            <div></div>     
+        </sectio>
+    
     </main>
-
-
-
-
-
-
-
-
-
-
-
     <footer>
-        <p>by Jeifry Rodriguez</p>
+        <p>&copy2023 by Jeifry Rodriguez G5-ONE <img src="imagenes/logo-footer.png" alt=""></p>
     </footer>
-
-
-
-
 </body>
 </html>
+
+
+
+<script>
+    
+    var textoEntada = document.getElementById("textoEntrada")
+    var botonEncriptar = document.getElementById("botonEncriptar")
+    var botonCopiar = document.getElementById('botonCopiar')
+    var botondesencriptar = document.getElementById('botonDesencriptar')
+
+
+
+
+// Función para encriptar texto
+function encriptar() {
+    
+
+    var textoFinal = textoEntada.value
+        .replace(/e/gi, "enter")
+      .replace(/i/gi, "imes")
+      .replace(/a/gi, "ai")
+      .replace(/o/gi, "ober")
+      .replace(/u/gi, "ufat");
+    document.getElementById("textoProcesado").value = textoFinal
+    procesarTexto()
+  }
+    
+  
+
+    function desencriptar(){
+        var textoFinal = textoEntada.value
+      .replace(/enter/gi, "e")
+      .replace(/imes/gi, "i")
+      .replace(/ai/gi, "a")
+      .replace(/ober/gi, "o")
+      .replace(/ufat/gi, "u");
+      document.getElementById("textoProcesado").value = textoFinal
+    procesarTexto()
+    }
+
+
+
+
+    function Copiar(){
+        const contenido = document.getElementById('textoProcesado')
+        contenido.select()
+        document.execCommand('copy')
+        
+
+    }
+
+    function procesarTexto(){
+        document.getElementById("textoCopiaOriginal").innerHTML = textoEntada.value 
+        document.getElementById('textosVisibles').style.visibility = 'visible' 
+        botonCopiar.style.visibility = 'visible'
+        textoEntada.value = ''
+    }
+
+    
+    botonEncriptar.onclick = encriptar
+    botonCopiar.onclick = Copiar
+    botondesencriptar.onclick = desencriptar 
+
+</script>
